@@ -16,11 +16,11 @@ os.environ["CUDA_VISIBLE_DEVICES"]="2"
 img_size = 256
 BATCH_SIZE = 8
 SEED = 42
-save_path = "best_model.h5"
+save_path = "/kaggle/working/best_model.h5"
 
 valid_size = 0.1
 test_size = 0.15
-epochs = 350
+epochs = 1 # 350
 save_weights_only = True
 max_lr = 1e-4
 min_lr = 1e-6
@@ -57,13 +57,13 @@ model.compile(optimizer = opts,
             metrics=[dice_coeff,bce_dice_loss, IoU, zero_IoU])
 
 # model.summary()
-route = './TrainDataset'
-X_path = './TrainDataset/images/'
-Y_path = './TrainDataset/masks/'
+#route = './TrainDataset'
+#X_path = './TrainDataset/images/'
+#Y_path = './TrainDataset/masks/'
 
-# route = './Kvasir-SEG'
-# X_path = './Kvasir-SEG/images/'
-# Y_path = './Kvasir-SEG/masks/'
+route = '/kaggle/input/kvasir-seg/Kvasir-SEG'
+X_path = '/kaggle/input/kvasir-seg/Kvasir-SEG/images/'
+Y_path = '/kaggle/input/kvasir-seg/Kvasir-SEG/masks/'
 
 X_full = sorted(os.listdir(f'{route}/images'))
 Y_full = sorted(os.listdir(f'{route}/masks'))
